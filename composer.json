@@ -1,10 +1,12 @@
 {
-    "name": "laravel/laravel",
+    "name": "descompilando/asteroid-blank",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "A powerful blank Laravel project.",
     "keywords": [
-        "framework",
-        "laravel"
+        "skeleton",
+        "blank",
+        "laravel",
+        "descompilando"
     ],
     "license": "MIT",
     "require": {
@@ -18,12 +20,10 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "livewire/livewire": "^2.0",
-        "sentry/sentry-laravel": "^1.9",
-        "tightenco/ziggy": "^0.8.1"
+        "sentry/sentry-laravel": "^1.9"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
-        "filp/whoops": "^2.0",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^5.0",
@@ -46,13 +46,6 @@
         "classmap": [
             "database/seeds",
             "database/factories"
-        ],
-        "files": [
-            "app/Helpers/asset.php",
-            "app/Helpers/datetime.php",
-            "app/Helpers/mask.php",
-            "app/Helpers/route.php",
-            "app/Helpers/ui.php"
         ]
     },
     "autoload-dev": {
