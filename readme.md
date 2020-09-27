@@ -10,3 +10,18 @@ The template include some awesome tools:
 - Livewire
 - Sentry
 - Font Awesome
+
+## Getting started
+
+Create a new project:
+
+```shell
+composer create-project descompilando/asteroid-blank eros
+```
+
+Build the front-end assets:
+
+```shell
+npm install
+npm run watch # To keep watching changes
+```
