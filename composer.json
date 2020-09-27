@@ -19,8 +19,7 @@
         "laravel/ui": "^3.0",
         "livewire/livewire": "^2.0",
         "sentry/sentry-laravel": "^1.9",
-        "tightenco/ziggy": "^0.8.1",
-        "tymon/jwt-auth": "^1.0.0"
+        "tightenco/ziggy": "^0.8.1"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.6",
