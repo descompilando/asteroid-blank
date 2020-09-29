@@ -1,5 +1,5 @@
 {
-  "private": true,
+  "main": "webpack.mix.js",
   "scripts": {
     "dev": "npm run development",
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -9,6 +9,7 @@
     "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
+  "dependencies": {},
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
     "cross-env": "^5.1",
@@ -20,24 +21,5 @@
     "resolve-url-loader": "^2.3.1",
     "tailwindcss": "^1.7.6",
     "vue-template-compiler": "^2.6.12"
-  },
-  "name": "central-pagamentos",
-  "description": "<p align=\"center\"><img src=\"https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg\" width=\"400\"></p>",
-  "version": "1.0.0",
-  "main": "webpack.mix.js",
-  "directories": {
-    "test": "tests"
-  },
-  "repository": {
-    "type": "git",
-    "url": "http://gitlab.unimedrs.com.br/unimedrs/central-pagamentos.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "jquery": "^3.5.1",
-    "jquery-mask-plugin": "^1.14.16",
-    "select2": "^4.0.13"
   }
 }
