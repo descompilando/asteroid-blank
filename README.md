@@ -6,10 +6,10 @@ Start a rocket journey towards the stars when creating a new Laravel project wit
 
 The template include some awesome tools:
 
-- Tailwind CSS (using LESS and Node)
-- Livewire
-- Sentry
-- Font Awesome
+- [Tailwind](https://tailwindcss.com)
+- [Livewire](https://laravel-livewire.com)
+- [Font Awesome](https://fontawesome.com)
+- [Sentry](https://sentry.io)
 
 ## Getting started
 
