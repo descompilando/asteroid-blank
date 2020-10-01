@@ -2,14 +2,9 @@
 
 namespace App\Exceptions;
 
-use Exception;
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Sentry\State\Scope;
 use Throwable;
-use Tymon\JWTAuth\Facades\JWTAuth;
 use function Sentry\configureScope;
 
 class Handler extends ExceptionHandler
@@ -34,55 +29,40 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Report or log an exception.
+     * Register the exception handling callbacks for the application.
      *
-     * @param Exception $exception
      * @return void
-     * @throws Exception
      */
-    public function report(Throwable $exception)
+    public function register()
     {
-        if (app()->bound('sentry')) {
-            $sentry = app('sentry');
-            $params = array('id' => null);
+        $this->reportable(function (Throwable $throwable) {
+            $this->sendToSentry($throwable);
+        });
+    }
 
-            if (auth()->check()) {
-                try {
-                    $user = auth()->user();
-
-                    $params['id'] = $user->id;
-                    $params['name'] = $user->name;
-                    $params['email'] = $user->email;
-
-                    configureScope(function (Scope $scope) use ($params) : void {
-                        $scope->setUser($params);
-                    });
-                } catch (Throwable $throwable) { }
-            }
-
-            if ($this->shouldReport($exception))
-                $sentry->captureException($exception);
+    private function sendToSentry(Throwable $throwable)
+    {
+        if (!app()->bound('sentry')) {
+            return;
         }
 
-        parent::report($exception);
-    }
+        $sentry = app('sentry');
 
-    /**
-     * Render an exception into an HTTP response.
-     *
-     * @param  Request  $request
-     * @param  Exception  $exception
-     * @return Response
-     */
-    public function render($request, Throwable $exception)
-    {
-        return parent::render($request, $exception);
-    }
+        if (auth()->check()) {
+            try {
+                $user = auth()->user();
+                configureScope(function (Scope $scope) use ($user) : void {
+                    $scope->setUser([
+                        'id' => $user->id,
+                        'name' => $user->name,
+                        'email' => $user->email
+                    ]);
+                });
+            } catch (Throwable $_) {
+                //
+            }
+        }
 
-    protected function unauthenticated($request, AuthenticationException $exception)
-    {
-        return $request->expectsJson()
-            ? response()->json(['error' => "Sessão expirou"], 401)
-            : redirect()->guest($exception->redirectTo() ?? route('auth'));
+        $sentry->captureException($throwable);
     }
 }
