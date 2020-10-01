@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,7 +13,6 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('index');
-Route::group(['middleware' => 'auth.web'], function () {    
-
+Route::get('/', function () {
+    return view('welcome');
 });
