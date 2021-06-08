@@ -195,3 +195,9 @@ GitHub.sublime-settings
 # .pnp.*
 
 # End of https://www.toptal.com/developers/gitignore/api/laravel,phpunit,phpstorm+all,visualstudiocode,sublimetext,yarn
+
+### Custom ###
+public/css
+public/fonts
+public/js
+public/vendor
