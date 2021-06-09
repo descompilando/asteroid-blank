@@ -182,4 +182,8 @@ GitHub.sublime-settings
 # End of https://www.toptal.com/developers/gitignore/api/laravel,phpstorm+all,visualstudiocode,sublimetext,phpunit
 
 ### Custom ###
+public/css
+public/fonts
+public/js
+public/vendor
 .php_cs.cache
