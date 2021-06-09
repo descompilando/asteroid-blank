@@ -20,10 +20,28 @@ You are free to setup new tools, remove which you dont want or even replace ever
 
 ## Usage
 
-You can start creating a new project:
+You can start creating a new project using it as template:
 
 ```shell
 composer create-project descompilando/asteroid-blank my-app
 ```
 
-Or just clone it and run.
+Or just clone it and edit:
+```
+git clone git@github.com:descompilando/asteroid-blank.git my-app
+rm -rf .git/
+```
+
+To bring it up you can use [Laravel Sail](https://laravel.com/docs/8.x/sail):
+
+```
+cd my-app
+sail up -d
+```
+
+Or even the [Laravel built-in solution](https://laravel.com/docs/8.x#the-laravel-installer):
+
+```
+cd my-app
+php artisan serve
+```
