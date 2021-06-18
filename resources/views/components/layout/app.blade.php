@@ -10,11 +10,15 @@
 
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <livewire:styles />
+
+        @stack('styles')
     </head>
     <body class="min-h-screen antialiased">
         {{ $slot }}
 
         <livewire:scripts />
         <script src="{{ asset('js/app.js') }}" ></script>
+
+        @stack('scripts')
     </body>
 </html>
