@@ -1,24 +1,28 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>
-            {{ config('app.name') }} @if ($title ?? false) | {{ $title }} @endif
-        </title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-        <livewire:styles />
+    <title>
+        @if ($title ?? false) {{ $title }} | @endif
+        {{ config('app.name') }}
+    </title>
 
-        @stack('styles')
-    </head>
-    <body class="min-h-screen antialiased">
-        {{ $slot }}
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <livewire:styles />
 
-        <livewire:scripts />
-        <script src="{{ asset('js/app.js') }}" ></script>
+    @stack('styles')
+</head>
 
-        @stack('scripts')
-    </body>
+<body class="min-h-screen antialiased">
+    {{ $slot }}
+
+    <livewire:scripts />
+    <script src="{{ mix('js/app.js') }}"></script>
+
+    @stack('scripts')
+</body>
+
 </html>
