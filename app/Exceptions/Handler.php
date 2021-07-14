@@ -37,10 +37,14 @@ class Handler extends ExceptionHandler
      */
     protected function context()
     {
-        return array_merge(parent::context(), [
-            'name' => optional(Auth::user())->name,
-            'email' => optional(Auth::user())->email,
-        ]);
+        try {
+            return array_merge(parent::context(), [
+                'name' => optional(Auth::user())->name,
+                'email' => optional(Auth::user())->email,
+            ]);
+        } catch (Throwable $_) {
+            //
+        }
     }
 
     /**
